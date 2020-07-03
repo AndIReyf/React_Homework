@@ -2,6 +2,8 @@ import React, {useState} from 'react';
 import './App.css';
 import Chat from "./Chat/Chat";
 import {TaskType, TitleType, TodoList} from "./TodoList/TodoList";
+import {Task3, UserType} from "./Task3/Task3";
+import {v1} from "uuid";
 
 export type FilterType = 'all' | 'low' | 'middle' | 'high';
 
@@ -18,16 +20,16 @@ function App() {
 
     let [filter, setFilter] = useState<FilterType>('all');
 
+    const [user, setUser] = useState<Array<UserType>>([]);
+
     const deleteTask = (id: number) => {
         setTasks(tasks.filter(t => t.id !== id));
     }
-
     const filterTasks = (value: FilterType) => {
         setFilter(value);
     }
 
     let filteredTasks = tasks;
-
     switch (filter) {
         case "low": {
             filteredTasks = tasks.filter(t => t.p === 'low');
@@ -41,6 +43,12 @@ function App() {
             break;
         }
     }
+
+    const addUser = (value: string) => {
+        let newUser = {id: v1(), name: value};
+        setUser([newUser, ...user]);
+    }
+
   return (
     <div className="App">
       <Chat />
@@ -48,6 +56,9 @@ function App() {
                 title={title}
                 deleteTask={deleteTask}
                 filterTasks={filterTasks}
+      />
+      <Task3 users={user}
+             addUser={addUser}
       />
     </div>
   );
