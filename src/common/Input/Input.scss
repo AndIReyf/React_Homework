@@ -1,0 +1,21 @@
+.inp {
+    border: 1px solid #bada55;
+    background-color: #222222;
+    color: #ffffff;
+    border-radius: 20px;
+    padding: 10px;
+    width: 300px;
+    outline: none;
+
+    &:focus {
+        box-shadow: 0 0 5px 1px #bada55;
+    }
+}
+
+.error {
+    border: 1px solid #da77b3;
+
+    &:focus {
+        box-shadow: 0 0 5px 1px #da77b3;
+    }
+}

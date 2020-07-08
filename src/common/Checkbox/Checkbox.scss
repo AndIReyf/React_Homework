@@ -1,0 +1,44 @@
+.checkboxContainer{
+  display: contents;
+}
+.checkbox{
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #ffffff;
+  width: 15px;
+  height: 15px;
+  border: 1px solid #222222;
+  border-radius: 3px;
+  transition: background-color .3s;
+
+  &:hover {
+    background-color: #bada55;
+  }
+}
+
+.check{
+  width: 10px;
+  height: 10px;
+  position: relative;
+
+  &::before,
+  &::after{
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    background-color: #222222;
+    top: 50%;
+    left: 50%;
+  }
+
+  &::before{
+    transform: translate(-50%, -50%) rotate(-45deg);
+  }
+
+  &::after {
+    transform: translate(-50%, -50%) rotate(45deg);
+  }
+}

@@ -1,0 +1,30 @@
+.btn {
+    border: 1px solid #222222;
+    text-align: center;
+    outline: none;
+    transition: box-shadow 0.3s;
+    cursor: pointer;
+    background-color: #222222;
+    color: #ffffff;
+    padding: 10px;
+    border-radius: 100%;
+
+    &:hover{
+        box-shadow: 0 0 5px 1px #222222;
+    }
+}
+.Del {
+    border: 1px solid #da77b3;
+
+    &:hover {
+        box-shadow: 0 0 5px 1px #da77b3;
+    }
+}
+
+.Add {
+    border: 1px solid #04d9ff;
+
+    &:hover{
+        box-shadow: 0 0 5px 1px #04d9ff;
+    }
+}

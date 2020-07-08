@@ -1,0 +1,7 @@
+.task4 {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 30px;
+    background-color: #222222;
+}

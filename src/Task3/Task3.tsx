@@ -1,5 +1,7 @@
 import React, {ChangeEvent, KeyboardEvent, useState} from "react";
 import style from './Task3.module.scss';
+import {Button} from "../common/Button/Button";
+import {Input} from "../common/Input/Input";
 
 type PropsType = {
     users: Array<UserType>
@@ -15,9 +17,7 @@ export function Task3(props: PropsType) {
 
     const placeholderValue: string = 'Enter your name...';
     const typeInput: string = 'text';
-
     const [inpValue, setInpValue] = useState<string>('');
-
     const isInpEmpty = (value: string) => value.trim() === '';
     const showAlert = (value: string) => {
         setInpValue('');
@@ -46,15 +46,15 @@ export function Task3(props: PropsType) {
         <div className={style.task3Box}>
             <h3>Task3</h3>
             <div className={style.inpBox}>
-                <input className={style.inp}
+                <Input placeholder={placeholderValue}
                        type={typeInput}
-                       placeholder={placeholderValue}
                        value={inpValue}
                        onChange={onInpValueChange}
                        onKeyPress={onKeyPressInInput}
                 />
-                <button className={style.btn}
-                        onClick={addNewUserName}>Add</button>
+                <Button btnStyle={'Add'}
+                        onClick={addNewUserName}
+                />
             </div>
             <ul>
                 {

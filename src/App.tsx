@@ -4,6 +4,7 @@ import Chat from "./Chat/Chat";
 import {TaskType, TitleType, TodoList} from "./TodoList/TodoList";
 import {Task3, UserType} from "./Task3/Task3";
 import {v1} from "uuid";
+import {Task4} from "./Task4/Task4";
 
 export type FilterType = 'all' | 'low' | 'middle' | 'high';
 
@@ -60,6 +61,7 @@ function App() {
       <Task3 users={user}
              addUser={addUser}
       />
+      <Task4 />
     </div>
   );
 }
