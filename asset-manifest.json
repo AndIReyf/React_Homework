@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/React_Homework/static/css/main.06ac5f7c.chunk.css",
+    "main.js": "/React_Homework/static/js/main.ac07c44f.chunk.js",
+    "main.js.map": "/React_Homework/static/js/main.ac07c44f.chunk.js.map",
+    "runtime-main.js": "/React_Homework/static/js/runtime-main.cc4a4677.js",
+    "runtime-main.js.map": "/React_Homework/static/js/runtime-main.cc4a4677.js.map",
+    "static/js/2.7144bdf8.chunk.js": "/React_Homework/static/js/2.7144bdf8.chunk.js",
+    "static/js/2.7144bdf8.chunk.js.map": "/React_Homework/static/js/2.7144bdf8.chunk.js.map",
+    "index.html": "/React_Homework/index.html",
+    "precache-manifest.5c45600455fb1347abf0fe38dbd2cdfe.js": "/React_Homework/precache-manifest.5c45600455fb1347abf0fe38dbd2cdfe.js",
+    "service-worker.js": "/React_Homework/service-worker.js",
+    "static/css/main.06ac5f7c.chunk.css.map": "/React_Homework/static/css/main.06ac5f7c.chunk.css.map",
+    "static/js/2.7144bdf8.chunk.js.LICENSE.txt": "/React_Homework/static/js/2.7144bdf8.chunk.js.LICENSE.txt",
+    "static/media/avatar.jpeg": "/React_Homework/static/media/avatar.c3f042ec.jpeg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.cc4a4677.js",
+    "static/js/2.7144bdf8.chunk.js",
+    "static/css/main.06ac5f7c.chunk.css",
+    "static/js/main.ac07c44f.chunk.js"
+  ]
+}
