@@ -1,7 +1,9 @@
 import React, {useState} from "react";
 import './Checkbox.scss';
 
-export function Checkbox() {
+type PropsType = {}
+
+export function Checkbox(props: PropsType) {
 
     const [checked, setChecked] = useState(false);
     const isChecked = () => checked ? setChecked(false) : setChecked( true);

@@ -1,22 +1,42 @@
 import React from "react";
 import style from './TodoList.module.scss';
-import {FilterType} from "../App";
+import {FilterType} from "../Task5/PreJunior/PreJunior";
 
+export type TitleType = string
 export type TaskType = {
-    id: number
+    id: string
     n: string
     p: string
 }
-export type TitleType = string
-
 type PropsType = {
     tasks: Array<TaskType>
     title: TitleType
-    deleteTask: (id: number) => void
+    deleteTask: (id: string) => void
     filterTasks: (value: FilterType) => void
 }
 
 export function TodoList(props: PropsType) {
+
+    const changeColorPriority = (priority: string) => {
+        switch (priority) {
+            case 'low': {
+                return {
+                    backgroundColor: '#bada55'
+                }
+            }
+            case 'middle': {
+                return {
+                    backgroundColor: '#e3d91b'
+                }
+            }
+            case 'high': {
+                return {
+                    backgroundColor: '#dd2222'
+                }
+            }
+        }
+    }
+
     return (
         <div className={style.todoListBox}>
             <div className={style.wrap}>
@@ -24,9 +44,12 @@ export function TodoList(props: PropsType) {
             <ul>
                 {
                     props.tasks.map(t => <li key={t.id} className={style.tasksList}>
-                        <button className={style.deleteBtn} onClick={() => {props.deleteTask(t.id)}}><span></span></button>
+                        <button className={style.deleteBtn}
+                                onClick={() => {props.deleteTask(t.id)}}>
+                            <span> </span>
+                        </button>
                         <span className={style.task}>{t.n}</span>
-                        <span className={style.priority}>{t.p}</span>
+                        <span style={changeColorPriority(t.p)} className={style.priority}>{t.p}</span>
                     </li>)
                 }
             </ul>
