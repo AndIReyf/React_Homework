@@ -1,3 +1,17 @@
 .junior {
   padding-left: 50px;
 }
+
+.btnContainer {
+  display: flex;
+  padding: 10px;
+
+  & .btnBox:nth-child(1) {
+    margin-right: 10px;
+
+    & .btn {
+      background-color: #bada55;
+      color: #222222;
+    }
+  }
+}

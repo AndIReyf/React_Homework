@@ -17,6 +17,7 @@ export function Task3(props: PropsType) {
 
     const placeholderValue: string = 'Enter your name...';
     const typeInput: string = 'text';
+    const btnName: string = 'Add name';
     const [inpValue, setInpValue] = useState<string>('');
     const isInpEmpty = (value: string) => value.trim() === '';
     const showAlert = (value: string) => {
@@ -53,6 +54,7 @@ export function Task3(props: PropsType) {
                        onKeyPress={onKeyPressInInput}
                 />
                 <Button btnStyle={'Add'}
+                        btnName={btnName}
                         onClick={addNewUserName}
                 />
             </div>

@@ -1,13 +1,15 @@
-import React, {ChangeEvent, KeyboardEvent} from "react";
+import React, {ChangeEvent, FocusEvent, KeyboardEvent} from "react";
 import './Input.scss';
 
 type PropsType = {
     error?: boolean
-    placeholder: string
+    placeholder?: string
     type: string
     value: string
+    autoFocus?: boolean
     onChange: (e: ChangeEvent<HTMLInputElement>) => void
     onKeyPress?: (e: KeyboardEvent<HTMLInputElement>) => void
+    onBlur?: (e: FocusEvent<HTMLInputElement>) => void
 }
 
 export function Input(props: PropsType) {
@@ -29,6 +31,8 @@ export function Input(props: PropsType) {
                    placeholder={props.placeholder}
                    onChange={props.onChange}
                    onKeyPress={props.onKeyPress}
+                   onBlur={props.onBlur}
+                   autoFocus={props.autoFocus}
             />
         </div>
     )

@@ -3,20 +3,13 @@ import './Button.scss';
 
 type PropsType = {
     btnStyle?: string
+    btnName?: string
     onClick: () => void
 }
 
 export function Button(props: PropsType) {
 
-    let btnName: string | undefined;
     const btnClass = (value: string | undefined) => {
-        if (value === undefined) {
-            btnName = 'Default';
-            return `btn`;
-        }
-
-        btnName = value;
-
         switch (value) {
             case 'Add': {
                 return `btn ${value}`;
@@ -34,7 +27,7 @@ export function Button(props: PropsType) {
         <div className={'btnBox'}>
             <button className={btnClass(props.btnStyle)}
                     onClick={props.onClick}>
-                {btnName}
+                {props.btnName}
             </button>
         </div>
     )

@@ -13,8 +13,8 @@ export function Menu(props: PropsType) {
 
     return (
         <div className={`menu ${menu ? 'active' : ''}`}>
-            <Button onClick={onClick} btnStyle={btnName}/>
-            <NavLink to="/">Home</NavLink>
+            <Button onClick={onClick} btnName={btnName}/>
+            <NavLink exact to="/">Home</NavLink>
             <NavLink to="/preJunior">PreJunior</NavLink>
             <NavLink to="/junior">Junior</NavLink>
             <NavLink to="/juniorPlus">Junior Plus</NavLink>
