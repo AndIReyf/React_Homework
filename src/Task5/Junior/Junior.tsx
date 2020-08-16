@@ -4,6 +4,8 @@ import {Menu} from "../../Menu/Menu";
 import {EditableSpan} from "../../common/EditableSpan/EditableSpan";
 import {Button} from "../../common/Button/Button";
 import {restoreState, saveState} from "../../LocalStorage/LocalStorage";
+import {OptionsType, Select} from "../../common/Select/Select";
+import {Radio, RadioItemsType} from "../../common/Radio/Radio";
 
 type PropsType = {}
 
@@ -13,16 +15,17 @@ export function Junior(props: PropsType) {
     const restoreBtn: string = 'Restore';
     const autoFocus: boolean = true;
     const typeInp: string = 'text';
+    const radioName: string = 'radio';
+    const selectOptions: OptionsType = ['Andy', 'Den', 'Gab', 'John']
+    const radioItems: RadioItemsType = ['Andy', 'Den', 'Gab', 'John']
+    const [selectValue, setSelectValue] = useState('')
     const [inpValue, setInpValue] = useState('');
     const onInpValueChange = (e: ChangeEvent<HTMLInputElement>) => setInpValue(e.currentTarget.value);
     const onKeyPressInInp = (e: KeyboardEvent<HTMLInputElement>) => setInpValue(e.currentTarget.value);
     const onBlur = (e: FocusEvent<HTMLInputElement>) => setInpValue(e.currentTarget.value);
-    const saveStatus = () => {
-        saveState('status', inpValue)
-    }
-    const restoreStatus = () => {
-        setInpValue( restoreState('status', 'Default status ;)'))
-    }
+    const saveStatus = () => saveState('status', inpValue)
+    const restoreStatus = () => setInpValue(restoreState('status', 'Default status ;)'))
+    const changeSelectValue = (e: ChangeEvent<HTMLSelectElement>) => setSelectValue(e.currentTarget.value)
 
     return (
         <div className={'junior'}>
@@ -45,6 +48,13 @@ export function Junior(props: PropsType) {
                     btnName={restoreBtn}
                     onClick={restoreStatus}/>
             </div>
+            <Select
+                onChange={changeSelectValue}
+                value={selectValue}
+                options={selectOptions}/>
+            <Radio
+                radioName={radioName}
+                radioItems={radioItems}/>
         </div>
     )
 }
