@@ -6,6 +6,7 @@ import {Button} from "../../common/Button/Button";
 import {restoreState, saveState} from "../../LocalStorage/LocalStorage";
 import {OptionsType, Select} from "../../common/Select/Select";
 import {Radio, RadioItemsType} from "../../common/Radio/Radio";
+import {Users} from "../../Task8/Users";
 
 type PropsType = {}
 
@@ -52,9 +53,12 @@ export function Junior(props: PropsType) {
                 onChange={changeSelectValue}
                 value={selectValue}
                 options={selectOptions}/>
+            <hr/>
             <Radio
                 radioName={radioName}
                 radioItems={radioItems}/>
+            <hr/>
+            <Users/>
         </div>
     )
 }
