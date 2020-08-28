@@ -7,15 +7,19 @@ import {HashRouter, Route} from "react-router-dom";
 import {PreJunior} from "./Task5/PreJunior/PreJunior";
 import {Junior} from "./Task5/Junior/Junior";
 import {JuniorPlus} from "./Task5/JuniorPlus/JuniorPlus";
+import {Provider} from "react-redux";
+import {store} from "./Redux/store";
 
 ReactDOM.render(
     <React.StrictMode>
-        <HashRouter>
-            <Route exact path={'/'} render={() => <App/>}/>
-            <Route path={'/preJunior'} render={() => <PreJunior/>}/>
-            <Route path={'/junior'} render={() => <Junior/>}/>
-            <Route path={'/juniorPlus'} render={() => <JuniorPlus/>}/>
-        </HashRouter>
+        <Provider store={store}>
+            <HashRouter>
+                <Route exact path={'/'} render={() => <App/>}/>
+                <Route path={'/preJunior'} render={() => <PreJunior/>}/>
+                <Route path={'/junior'} render={() => <Junior/>}/>
+                <Route path={'/juniorPlus'} render={() => <JuniorPlus/>}/>
+            </HashRouter>
+        </Provider>
     </React.StrictMode>,
     document.getElementById('root')
 );
