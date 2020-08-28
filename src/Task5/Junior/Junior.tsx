@@ -7,6 +7,7 @@ import {restoreState, saveState} from "../../LocalStorage/LocalStorage";
 import {OptionsType, Select} from "../../common/Select/Select";
 import {Radio, RadioItemsType} from "../../common/Radio/Radio";
 import {Users} from "../../Task8/Users";
+import {Clock} from "../../Task9/Clock";
 
 type PropsType = {}
 
@@ -19,8 +20,10 @@ export function Junior(props: PropsType) {
     const radioName: string = 'radio';
     const selectOptions: OptionsType = ['Andy', 'Den', 'Gab', 'John']
     const radioItems: RadioItemsType = ['Andy', 'Den', 'Gab', 'John']
+
     const [selectValue, setSelectValue] = useState('')
     const [inpValue, setInpValue] = useState('');
+
     const onInpValueChange = (e: ChangeEvent<HTMLInputElement>) => setInpValue(e.currentTarget.value);
     const onKeyPressInInp = (e: KeyboardEvent<HTMLInputElement>) => setInpValue(e.currentTarget.value);
     const onBlur = (e: FocusEvent<HTMLInputElement>) => setInpValue(e.currentTarget.value);
@@ -59,6 +62,9 @@ export function Junior(props: PropsType) {
                 radioItems={radioItems}/>
             <hr/>
             <Users/>
+            <hr/>
+            <Clock/>
+            <hr/>
         </div>
     )
 }
