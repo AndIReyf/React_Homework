@@ -23,7 +23,7 @@ export function Clock(props: PropsType) {
         let h = date.getHours()
         let m = date.getMinutes()
         let s = date.getSeconds()
-        return `${h}:${m}:${s}`
+        return `${h}:${m < 10 ? '0'+m: m}:${s < 10 ? '0'+s: s}`
     }
     const timer = () => {
         setBtnDisabled(true)
