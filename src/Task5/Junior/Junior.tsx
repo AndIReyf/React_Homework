@@ -25,12 +25,15 @@ export function Junior(props: PropsType) {
     const radioName: string = 'radio';
     const selectOptions: OptionsType = ['Andy', 'Den', 'Gab', 'John']
     const radioItems: RadioItemsType = ['Andy', 'Den', 'Gab', 'John']
+    const maxValue: number = 100;
 
     const dispatch = useDispatch()
     const loading = useSelector<AppRootType, StateType>(state => state.loading)
     const [selectValue, setSelectValue] = useState('')
     const [inpValue, setInpValue] = useState('');
     const [rangeValue, setRangeValue] = React.useState(0);
+    const [currentValueDouble, setCurrentValueDouble] = React.useState(maxValue);
+    const [slidersMode, setSlidersMode] = React.useState(false)
 
     const onInpValueChange = (e: ChangeEvent<HTMLInputElement>) => setInpValue(e.currentTarget.value);
     const onKeyPressInInp = (e: KeyboardEvent<HTMLInputElement>) => setInpValue(e.currentTarget.value);
@@ -44,9 +47,19 @@ export function Junior(props: PropsType) {
             dispatch(loadingAC(false))
         }, 3000)
     }
-    const changeRangeValue = React.useCallback ((e: ChangeEvent<HTMLInputElement>) => {
-        setRangeValue(+e.currentTarget.value)
+    const changeRangeValue = React.useCallback((e: ChangeEvent<HTMLInputElement>) => {
+        slidersMode
+            ? setRangeValue(Math.min(+e.currentTarget.value, currentValueDouble - 5))
+            : setRangeValue(+e.currentTarget.value)
     }, [rangeValue])
+    const changeRangeValueDouble = React.useCallback((e: ChangeEvent<HTMLInputElement>) => {
+        setCurrentValueDouble(Math.max(+e.currentTarget.value, rangeValue + 5));
+    }, [currentValueDouble])
+    const changeRangeMode = () => {
+        setRangeValue(0)
+        setCurrentValueDouble(maxValue)
+        setSlidersMode(!slidersMode)
+    }
 
     return (
         <div className={'junior'}>
@@ -90,10 +103,18 @@ export function Junior(props: PropsType) {
                         <Button btnName={'Loading'} onClick={startLoad}/>
                         <hr/>
                         <h3>Task 11</h3>
-                        <InputRange currentValue={rangeValue}
-                                    minValue={0} maxValue={100}
-                                    double={false}
-                                    changeRangeValue={changeRangeValue}/>
+                        <div className={'wrap'}>
+                            <div className={'btnContainer'}>
+                                <Button btnName={'Change Range'} onClick={changeRangeMode}/>
+                            </div>
+                            <InputRange currentValue={rangeValue}
+                                        currentValueDouble={currentValueDouble}
+                                        minValue={0}
+                                        maxValue={maxValue}
+                                        double={slidersMode}
+                                        changeRangeValueDouble={changeRangeValueDouble}
+                                        changeRangeValue={changeRangeValue}/>
+                        </div>
                     </>
             }
         </div>
