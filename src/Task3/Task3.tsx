@@ -25,12 +25,11 @@ export function Task3(props: PropsType) {
         alert(value);
     }
     const showErrorAlert = () => showAlert('Input is empty. Please enter your name!');
-    const showSuccessAlert = (name: string) =>  showAlert(`Hi ${name.trim()}, welcome to samurai's way!`);
+    const showSuccessAlert = (name: string) => showAlert(`Hi ${name.trim()}, welcome to samurai's way!`);
     const showUserName = () => {
         if (isInpEmpty(inpValue)) {
             showErrorAlert();
-        }
-        else {
+        } else {
             props.addUser(inpValue);
             showSuccessAlert(inpValue);
         }
@@ -47,15 +46,16 @@ export function Task3(props: PropsType) {
         <div className={style.task3Box}>
             <h3>Task3</h3>
             <div className={style.inpBox}>
-                <Input placeholder={placeholderValue}
-                       type={typeInput}
-                       value={inpValue}
-                       onChange={onInpValueChange}
-                       onKeyPress={onKeyPressInInput}
+                <Input
+                    placeholder={placeholderValue}
+                    type={typeInput}
+                    value={inpValue}
+                    onChange={onInpValueChange}
+                    onKeyPress={onKeyPressInInput}
                 />
-                <Button btnStyle={'Add'}
-                        btnName={btnName}
-                        onClick={addNewUserName}
+                <Button
+                    btnName={btnName}
+                    onClick={addNewUserName}
                 />
             </div>
             <ul>

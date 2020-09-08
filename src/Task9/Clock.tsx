@@ -8,6 +8,7 @@ export function Clock(props: PropsType) {
 
     const [timerId, setTimerId] = React.useState(0);
     const [date, setDate] = React.useState(new Date());
+    const [btnDisabled, setBtnDisabled] = React.useState(false)
 
     const getDate = () => {
         const monthNames = ["January", "February", "March", "April", "May", "June",
@@ -25,12 +26,16 @@ export function Clock(props: PropsType) {
         return `${h}:${m}:${s}`
     }
     const timer = () => {
+        setBtnDisabled(true)
         const tId = window.setInterval(() => {
             setDate(new Date())
         }, 1000);
         setTimerId(tId)
     }
-    const stopTimer = () => clearInterval(timerId)
+    const stopTimer = () => {
+        setBtnDisabled(false)
+        clearInterval(timerId)
+    }
 
     return (
         <div className={'Clock'}>
@@ -40,7 +45,7 @@ export function Clock(props: PropsType) {
                 <div className={'Date'}>{getDate()}</div>
             </div>
             <div className={'clockBtn'}>
-                <Button btnName={'Start'} onClick={timer}/>
+                <Button disabled={btnDisabled} btnName={'Start'} onClick={timer}/>
                 <Button btnName={'Stop'} onClick={stopTimer}/>
             </div>
         </div>

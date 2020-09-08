@@ -36,5 +36,14 @@
   }
   .clockBtn {
     display: flex;
+
+    .btnBox:nth-child(1){
+      margin-right: 5px;
+
+      .btn{
+        color: #222222;
+        background-color: #bada55;
+      }
+    }
   }
 }

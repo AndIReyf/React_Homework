@@ -13,18 +13,9 @@
         box-shadow: 0 0 5px 1px #222222;
     }
 }
-.Del {
-    border: 1px solid #da77b3;
-
-    &:hover {
-        box-shadow: 0 0 5px 1px #da77b3;
-    }
-}
-
-.Add {
-    border: 1px solid #04d9ff;
-
+.dis {
+    opacity: .5;
     &:hover{
-        box-shadow: 0 0 5px 1px #04d9ff;
+        box-shadow: none;
     }
 }
