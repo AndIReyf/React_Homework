@@ -1,4 +1,4 @@
-import React, {ChangeEvent, FocusEvent, KeyboardEvent, useState} from "react";
+import React, {ChangeEvent, FocusEvent, KeyboardEvent} from "react";
 import './Junior.scss';
 import {Menu} from "../../Menu/Menu";
 import {EditableSpan} from "../../common/EditableSpan/EditableSpan";
@@ -13,24 +13,24 @@ import {useDispatch, useSelector} from "react-redux";
 import {AppRootType} from "../../Redux/store";
 import {loadingAC, StateType} from "../../Redux/loading-reducer";
 import {InputRange} from "../../common/InputRange/InputRange";
+import {Switcher} from "../../common/Switcher/Switcher";
 
 type PropsType = {}
 
-export function Junior(props: PropsType) {
+export const Junior = React.memo(function Junior(props: PropsType) {
 
     const saveBtn: string = 'Save';
     const restoreBtn: string = 'Restore';
-    const autoFocus: boolean = true;
-    const typeInp: string = 'text';
     const radioName: string = 'radio';
     const selectOptions: OptionsType = ['Andy', 'Den', 'Gab', 'John']
     const radioItems: RadioItemsType = ['Andy', 'Den', 'Gab', 'John']
     const maxValue: number = 100;
 
-    const dispatch = useDispatch()
+    const dispatch = useDispatch();
     const loading = useSelector<AppRootType, StateType>(state => state.loading)
-    const [selectValue, setSelectValue] = useState('')
-    const [inpValue, setInpValue] = useState('');
+
+    const [selectValue, setSelectValue] = React.useState('')
+    const [inpValue, setInpValue] = React.useState('');
     const [rangeValue, setRangeValue] = React.useState(0);
     const [currentValueDouble, setCurrentValueDouble] = React.useState(maxValue);
     const [slidersMode, setSlidersMode] = React.useState(false)
@@ -51,7 +51,7 @@ export function Junior(props: PropsType) {
         slidersMode
             ? setRangeValue(Math.min(+e.currentTarget.value, currentValueDouble - 5))
             : setRangeValue(+e.currentTarget.value)
-    }, [rangeValue])
+    }, [slidersMode])
     const changeRangeValueDouble = React.useCallback((e: ChangeEvent<HTMLInputElement>) => {
         setCurrentValueDouble(Math.max(+e.currentTarget.value, rangeValue + 5));
     }, [currentValueDouble])
@@ -70,13 +70,13 @@ export function Junior(props: PropsType) {
                     ? <Preloader/>
                     : <>
                         <EditableSpan
-                            type={typeInp}
+                            type={'text'}
                             value={inpValue}
                             onChange={onInpValueChange}
                             onKeyPress={onKeyPressInInp}
                             onBlur={onBlur}
                             setInpValue={setInpValue}
-                            autoFocus={autoFocus}
+                            autoFocus={true}
                         />
                         <div className={'btnContainer'}>
                             <Button
@@ -115,8 +115,13 @@ export function Junior(props: PropsType) {
                                         changeRangeValueDouble={changeRangeValueDouble}
                                         changeRangeValue={changeRangeValue}/>
                         </div>
+                        <hr/>
+                        <h3>Task12</h3>
+                        <div className={'switchContainer'}>
+                            <Switcher />
+                        </div>
                     </>
             }
         </div>
     )
-}
+})

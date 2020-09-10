@@ -3,9 +3,7 @@ import './Menu.scss'
 import {NavLink} from "react-router-dom";
 import {Button} from "../common/Button/Button";
 
-type PropsType = {}
-
-export function Menu(props: PropsType) {
+export function Menu() {
 
     const btnName: string = 'Menu';
     const [menu, setMenu] = useState(false);
@@ -14,10 +12,12 @@ export function Menu(props: PropsType) {
     return (
         <div className={`menu ${menu ? 'active' : ''}`}>
             <Button onClick={onClick} btnName={btnName}/>
-            <NavLink exact to="/">Home</NavLink>
-            <NavLink to="/preJunior">PreJunior</NavLink>
-            <NavLink to="/junior">Junior</NavLink>
-            <NavLink to="/juniorPlus">Junior Plus</NavLink>
+            <div className={'menuBtnWrapper'}>
+                <NavLink exact to="/">Home</NavLink>
+                <NavLink to="/preJunior">PreJunior</NavLink>
+                <NavLink to="/junior">Junior</NavLink>
+                <NavLink to="/juniorPlus">Junior Plus</NavLink>
+            </div>
         </div>
     )
 }
