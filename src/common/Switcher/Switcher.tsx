@@ -1,24 +1,19 @@
 import React from "react";
 import '../icon/iconStyle.css'
 import './Switcher.scss'
-import {useDispatch, useSelector} from "react-redux";
-import {AppRootType} from "../../Redux/store";
-import {darkModeAC, ThemeStateType} from "../../Redux/theme-reducer";
 
-export const Switcher = React.memo(function Switcher() {
+type PropsType = {
+    darkTheme: boolean
+    changeTheme: () => void
+}
 
-    const dispatch = useDispatch()
-    const darkTheme = useSelector<AppRootType, ThemeStateType>(state => state.darkTheme)
-    const changeTheme =  () => {
-        dispatch(darkModeAC(!darkTheme.darkTheme))
-    }
-
+export const Switcher = React.memo(function Switcher(props:PropsType) {
     return (
         <div className={'switcherBox'}>
             <label className={'switcher'}>
                 <input
-                    onChange={changeTheme}
-                    checked={darkTheme.darkTheme}
+                    onChange={props.changeTheme}
+                    checked={props.darkTheme}
                     type="checkbox"/>
                 <span className={'switcherBtn'}> </span>
                 <i className={'switcherIcon icon-power-off'}> </i>

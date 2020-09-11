@@ -14,6 +14,7 @@ import {AppRootType} from "../../Redux/store";
 import {loadingAC, StateType} from "../../Redux/loading-reducer";
 import {InputRange} from "../../common/InputRange/InputRange";
 import {Switcher} from "../../common/Switcher/Switcher";
+import {darkModeAC, ThemeStateType} from "../../Redux/theme-reducer";
 
 type PropsType = {}
 
@@ -28,6 +29,7 @@ export const Junior = React.memo(function Junior(props: PropsType) {
 
     const dispatch = useDispatch();
     const loading = useSelector<AppRootType, StateType>(state => state.loading)
+    const theme = useSelector<AppRootType, ThemeStateType>(state => state.darkTheme)
 
     const [selectValue, setSelectValue] = React.useState('')
     const [inpValue, setInpValue] = React.useState('');
@@ -47,6 +49,13 @@ export const Junior = React.memo(function Junior(props: PropsType) {
             dispatch(loadingAC(false))
         }, 3000)
     }
+    React.useEffect(() => {
+        saveState('dark-theme', theme.darkTheme)
+    }, [theme.darkTheme])
+    const changeTheme =  () => {
+        dispatch(darkModeAC(!theme.darkTheme))
+    }
+
     const changeRangeValue = React.useCallback((e: ChangeEvent<HTMLInputElement>) => {
         slidersMode
             ? setRangeValue(Math.min(+e.currentTarget.value, currentValueDouble - 5))
@@ -62,7 +71,7 @@ export const Junior = React.memo(function Junior(props: PropsType) {
     }
 
     return (
-        <div className={'junior'}>
+        <div className={`junior ${theme.darkTheme ? 'darkTheme' : ''}`}>
             <h1>Junior Page</h1>
             <Menu/>
             {
@@ -118,7 +127,7 @@ export const Junior = React.memo(function Junior(props: PropsType) {
                         <hr/>
                         <h3>Task12</h3>
                         <div className={'switchContainer'}>
-                            <Switcher />
+                            <Switcher changeTheme={changeTheme} darkTheme={theme.darkTheme}/>
                         </div>
                     </>
             }
