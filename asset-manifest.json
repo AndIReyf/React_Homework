@@ -1,24 +1,25 @@
 {
   "files": {
-    "main.css": "/React_Homework/static/css/main.41e8a046.chunk.css",
-    "main.js": "/React_Homework/static/js/main.4cd161f3.chunk.js",
-    "main.js.map": "/React_Homework/static/js/main.4cd161f3.chunk.js.map",
+    "main.css": "/React_Homework/static/css/main.7d4fa427.chunk.css",
+    "main.js": "/React_Homework/static/js/main.0cdcd484.chunk.js",
+    "main.js.map": "/React_Homework/static/js/main.0cdcd484.chunk.js.map",
     "runtime-main.js": "/React_Homework/static/js/runtime-main.cc4a4677.js",
     "runtime-main.js.map": "/React_Homework/static/js/runtime-main.cc4a4677.js.map",
-    "static/js/2.00fad424.chunk.js": "/React_Homework/static/js/2.00fad424.chunk.js",
-    "static/js/2.00fad424.chunk.js.map": "/React_Homework/static/js/2.00fad424.chunk.js.map",
+    "static/js/2.fd5b2d5b.chunk.js": "/React_Homework/static/js/2.fd5b2d5b.chunk.js",
+    "static/js/2.fd5b2d5b.chunk.js.map": "/React_Homework/static/js/2.fd5b2d5b.chunk.js.map",
     "index.html": "/React_Homework/index.html",
-    "precache-manifest.be8e5d0a5b0d210255192847bb2fb426.js": "/React_Homework/precache-manifest.be8e5d0a5b0d210255192847bb2fb426.js",
+    "precache-manifest.9efb272620fea696c270ce98829f48d5.js": "/React_Homework/precache-manifest.9efb272620fea696c270ce98829f48d5.js",
     "service-worker.js": "/React_Homework/service-worker.js",
-    "static/css/main.41e8a046.chunk.css.map": "/React_Homework/static/css/main.41e8a046.chunk.css.map",
-    "static/js/2.00fad424.chunk.js.LICENSE.txt": "/React_Homework/static/js/2.00fad424.chunk.js.LICENSE.txt",
+    "static/css/main.7d4fa427.chunk.css.map": "/React_Homework/static/css/main.7d4fa427.chunk.css.map",
+    "static/js/2.fd5b2d5b.chunk.js.LICENSE.txt": "/React_Homework/static/js/2.fd5b2d5b.chunk.js.LICENSE.txt",
     "static/media/2.svg": "/React_Homework/static/media/2.16ee53fb.svg",
-    "static/media/avatar.jpeg": "/React_Homework/static/media/avatar.c3f042ec.jpeg"
+    "static/media/avatar.jpeg": "/React_Homework/static/media/avatar.c3f042ec.jpeg",
+    "static/media/iconStyle.css": "/React_Homework/static/media/icomoon.fff51f45.eot"
   },
   "entrypoints": [
     "static/js/runtime-main.cc4a4677.js",
-    "static/js/2.00fad424.chunk.js",
-    "static/css/main.41e8a046.chunk.css",
-    "static/js/main.4cd161f3.chunk.js"
+    "static/js/2.fd5b2d5b.chunk.js",
+    "static/css/main.7d4fa427.chunk.css",
+    "static/js/main.0cdcd484.chunk.js"
   ]
 }
