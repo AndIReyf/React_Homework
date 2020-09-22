@@ -15,6 +15,7 @@ import {loadingAC, StateType} from "../../Redux/loading-reducer";
 import {InputRange} from "../../common/InputRange/InputRange";
 import {Switcher} from "../../common/Switcher/Switcher";
 import {darkModeAC, ThemeStateType} from "../../Redux/theme-reducer";
+import {Request} from "../../Task13/Request";
 
 type PropsType = {}
 
@@ -129,6 +130,8 @@ export const Junior = React.memo(function Junior(props: PropsType) {
                         <div className={'switchContainer'}>
                             <Switcher changeTheme={changeTheme} darkTheme={theme.darkTheme}/>
                         </div>
+                        <hr/>
+                        <Request/>
                     </>
             }
         </div>
